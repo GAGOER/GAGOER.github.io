@@ -1,0 +1,411 @@
+:root{
+    --color1: #006266;
+    --color2: #009432;
+    --color3: #A3CB38;
+    --color4: #C4E538;
+}
+
+
+@font-face{
+    font-family: "font-1";
+    src: url(./Karla-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-2";
+    src: url(Karla-Italic.ttf);
+}
+
+@font-face{
+    font-family: "font-3";
+    src: url(./Karla-SemiBold.ttf);
+}
+
+/* Tout les images ont cette taille*/
+ img
+{ 
+    width: 90%;
+    height: 450px;
+    margin: 10px;
+}
+
+*{
+
+    margin: 0px;
+    padding: 0px;
+
+
+    /* Ainsi maintenaznt lorsqu on va definir la largeur d un element, *
+    * la largeur prendra en compte les padding et les bordures, *
+    * commze ça on a plus a se soucier de savoir si un element a oui ou *
+    * non un padding */
+    box-sizing: border-box;
+
+    font-family: 'font-1', sans-serif;
+
+    /* cette ligne de code permet, par exemple pour un effet de deffillement,
+    * d avoir un effet de deffillement assez doux qui ne se fait paas direxctement *
+    * vers la section */
+    scroll-behavior: smooth;
+    text-decoration: none;
+}
+
+h2{
+    padding: 10px 0px;
+    text-align: center;
+    background: var(--color1);
+    color: var(--color4);
+    font-size: 2rem;
+}
+#profil{
+    display: grid;
+    grid-template-columns: 30% 70%;
+
+}
+
+#photo{
+    text-align: center;
+}
+
+#photo > img{
+    border: 2px solid var(--color1);
+    border-radius: 5px;
+}
+
+#liste{
+    padding: 10% 50px 10% 50px;
+    padding-bottom: auto;
+    font-size: 1.25rem;
+
+}
+
+span{
+    font-family: "font-3";
+    font-size: 1.5rem;
+    color: var(--color2);
+}
+
+p{
+    font-size: 20px;
+    padding: 20px;
+}
+
+#finish{
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    margin-bottom: 30px;
+}
+
+button{
+    border-radius: 15px;
+    margin: 0px 15px;
+    background: var(--color1);
+    color: white;
+    font-size: 2rem;
+}
+
+button > a{
+    position: relative;
+    color: white;
+}
+
+button:hover{
+    color: white;
+    background: rgb(55, 197, 7);
+    transition: 0.2s;
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+
+
+
+/********************* footer *********************/
+footer{
+    /* Pour avoir des pointillés sur le bord du haut du footer */
+    font-size: 16px;
+    border-top: 1px dashed black;
+    padding: 0px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 100%;
+    height: auto;
+    background: var(--color1); 
+    display: grid;
+    grid-template-columns: 33.33% 33.34% 33.33%;
+    grid-template-rows: auto auto auto;
+    position: relative;
+    z-index: 3;
+}
+
+footer > div {
+text-align: center;
+width: 100%;
+font-size: 20px;
+margin-top: auto;
+margin-bottom: auto;
+padding: 15px;
+position: relative;
+top: -5px;
+}
+
+#f1 > h4, #f2 > div > h4, #f2 > h4, #f3 > h4{
+font-size: 35px;
+color: white;
+}
+
+#f3 > h4{
+position: relative;
+margin-bottom: 15px;
+}
+
+#f1 > ul > li > a{
+position: relative;
+color: black;
+    line-height: 30px;
+}
+
+i{
+color: rgb(5, 43, 1);
+}
+
+footer > div > ul > li > img{
+width: 40px;
+height: 40px;
+}
+
+footer > div > ul > li{
+position: relative;
+display: inline;
+flex-direction: row;
+flex-wrap: wrap;
+justify-content: space-evenly;
+
+}
+
+#f3 > h4{
+position: relative;
+top: -22px;
+}
+
+#f2 > div > p > a{
+color: black;
+}
+
+#f2 > div > p{
+    padding: 0px;
+    }
+
+
+/******************* Responsive ******************/
+
+@media screen and (max-width: 1090px){
+     img
+    { 
+        width: 100%;
+        height: auto;
+        margin: 10px;
+    }
+
+    #liste{
+        padding: 5% 20px 1% 50px;
+        font-size: 1.25rem;
+    
+    }
+    
+    span{
+        font-family: "font-3";
+        font-size: 1.5rem;
+        color: var(--color2);
+    }
+    
+    p{
+        font-size: 20px;
+        padding: 20px;
+    }
+
+}
+
+@media screen and (max-width: 800px){
+    #profil{
+        grid-template-columns: 40% 60%;
+    
+    }
+
+    img
+   { 
+       width: 100%;
+       height: auto;
+       margin: 10px;
+   }
+
+   #liste{
+       padding: 5% 5px 1% 30px;
+       font-size: 1.25rem;
+       margin-left: 5px;
+   
+   }
+   
+   span{
+       font-family: "font-3";
+       font-size: 20px;
+       color: var(--color2);
+   }
+   
+   p{
+       font-size: 16px;
+       padding: 0px 20px 20px 20px;
+   }
+
+}
+
+@media screen and (max-width: 640px){
+    #profil{
+        grid-template-columns: 40% 60%;
+    
+    }
+
+    img
+   { 
+       width: 100%;
+       height: auto;
+       margin: 10px;
+   }
+
+   #liste{
+       padding: 5% 5px 1% 30px;
+       font-size: 1.10rem;
+       margin-left: 5px;
+   
+   }
+   
+   span{
+       font-family: "font-3";
+       font-size: 18px;
+       color: var(--color2);
+   }
+   
+   p{
+       font-size: 16px;
+       padding: 0px 20px 20px 20px;
+   }
+
+   button{
+    border-radius: 15px;
+    margin: 0px 15px;
+    background: var(--color1);
+    color: white;
+    font-size: 1.5rem;
+}
+
+}
+
+@media screen and (max-width: 585px){
+    #profil{
+        grid-template-columns: 35% 65%;
+    
+    }
+
+    img
+   { 
+       width: 100%;
+       height: auto;
+       margin: 10px;
+   }
+
+   #liste{
+       padding: 5% 5px 1% 30px;
+       font-size: 1rem;
+       margin-left: 5px;
+   
+   }
+   
+   span{
+       font-family: "font-3";
+       font-size: 16px;
+       color: var(--color2);
+   }
+   
+   p{
+       font-size: 16px;
+       padding: 0px 20px 20px 20px;
+   }
+
+   button{
+    border-radius: 15px;
+    margin: 0px 15px;
+    background: var(--color1);
+    color: white;
+    font-size: 1.5rem;
+}
+
+}
+
+@media screen and (max-width: 535px){
+    #profil{
+        grid-template-columns: 35% 65%;
+    }
+
+    img
+   { 
+       width: 100%;
+       height: auto;
+       margin: 10px;
+   }
+
+   #liste{
+       padding: 5% 5px 1% 30px;
+       font-size: 14px;
+       margin-left: 5px;
+   
+   }
+   
+   span{
+       font-family: "font-3";
+       font-size: 16px;
+       color: var(--color2);
+   }
+   
+   p{
+       font-size: 14px;
+       padding: 0px 20px 20px 20px;
+   }
+
+   button{
+    border-radius: 15px;
+    margin: 0px 15px;
+    background: var(--color1);
+    color: white;
+    font-size: 1.5rem;
+}
+}
+
+/********************* footer text responsive *******************/
+
+@media screen and (max-width: 615px){
+
+    #f1 > h4, #f2 > div > h4, #f2 > h4, #f3 > h4{
+        font-size: 25px;
+        color: white;
+    }
+    
+    footer > div > ul > li, #f2 > div > p{
+        font-size: 16px;
+    }
+
+
+    footer > div > ul > li > img{
+        width: 35px;
+        height: 35px;
+    }
+    
+}
+
+
+
+
+
+
+
+
+

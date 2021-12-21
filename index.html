@@ -1,0 +1,1364 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="garo.png">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/2d859fecb4.js" crossorigin="anonymous"></script>
+    <title>GaRo</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <!-- Ici c est pour le logo-->
+            <a href="#" class="logo"><span>G</span>a<span>R</span>O</a>
+            <!-- Navigateur de la page -->
+            <div class="navbar">
+                <ul>
+                    <li><a href="_blanc">create an account</a></li>
+                    <li><a href="_blanc">Log in</a></li>
+                </ul>
+            </div>
+
+        </nav>
+        <div id="cart">
+            <h1>GaRo</h1>
+            <p>=</p>
+            <div id="caroussel">
+                <div class="phrases">
+                    <h2> Healthy Mind </h2>
+                    <h2> Healthy Body </h2>
+                    <h2> Healty Eating</h2>
+                    <h2> Healty Activity </h2>
+                    <h2> So Healty LIFE :) </h2>
+                </div>
+            </div>
+
+        </div>
+
+    </header>
+
+    <div id="index">
+        <!-- 1 partie contenue de la page -->
+
+        <!-- IMS -->
+        <h3 id="h3">B.M.I (Body Mass Index)</h3>
+        <div id="ims">
+
+            <!-- Nous allons donner ici l'IMC de Mitchenko (bah dans ce cas mets les bonnes mesures connard) -->
+            <!--(Mitch) j'ai rajouté des divs et des lignes dans le css pour mieux arranger les inputs et le bouton-->
+            <!--(Mitch) j'ai aussi viré le formulaire, les données seront récupérées uniiquement avec le JS-->
+
+            <p> Give your weight and height, if your BMI is 16 to 18.5 you are underweight,
+                if it is between 18.5 and 25 you are normal and between 25 and 40 you are overweight
+            </p>
+            <div id="ims2">
+
+                <div>
+                    <input type="number" min="0" max="300" id="poids" placeholder="72">
+                    <label for="poids">Weight (kg)</label>
+                </div>
+
+                <div>
+                    <input type="number" min="0" max="300" id="taille" placeholder="185">
+                    <label for="taille">height (cm)</label>
+                </div>
+
+            </div>
+
+            <button onclick="getValue()">Results</button>
+
+        </div>
+
+
+        <!--alterne entre les infos des aliments et la liste des partenaires-->
+        <div id="boutons">
+            <button id="infos" onclick="display(this)">what are you eat ?</button>
+            <button id="partenaires" onclick="display(this)">Our Partners</button>
+        </div>
+        <!-- Nous allons leurs demander ce qu ils consomment et leurs donner des conseilles -->
+        <!-- Information sur la malboufe -->
+
+        <div id="images">
+
+            <div id="1" onclick="infos(this)">
+                <img src="cigarettes.jpg" alt="cigarettes">
+                <p>cigarette</p>
+            </div>
+
+            <div id="2" onclick="infos(this)">
+                <img src="alcool.png" alt="alcool">
+                <p>alcohol</p>
+            </div>
+
+            <div id="3" onclick="infos(this)">
+                <img src="coca.png" alt="coca">
+                <p>soft drink</p>
+            </div>
+
+            <div id="4" onclick="infos(this)">
+                <img src="mayonnaise.png" alt="mayonnaise">
+                <p>mayonaise</p>
+            </div>
+
+            <div id="5" onclick="infos(this)">
+                <img src="sucre.png" alt="sucre">
+                <p>sugar</p>
+            </div>
+
+            <div id="6" onclick="infos(this)">
+                <img src="huile.jpg" alt="huile">
+                <p>oil</p>
+            </div>
+
+            <div id="7" onclick="infos(this)">
+                <img src="beurre.jpg" alt="beurre">
+                <p>butter</p>
+            </div>
+
+            <div id="8" onclick="infos(this)">
+                <img src="nutella.png" alt="nutella">
+                <p>nutella</p>
+            </div>
+
+            <div id="9" onclick="infos(this)">
+                <img src="lait.png" alt="lait">
+                <p>milk</p>
+            </div>
+
+            <div id="10" onclick="infos(this)">
+                <img src="cereales.jpg" alt="céréales">
+                <p>cereal</p>
+            </div>
+
+            <div id="11" onclick="infos(this)">
+                <img src="chewing_gum.jpg" alt="chewing-gum">
+                <p>chewing-gum</p>
+            </div>
+
+            <div id="12" onclick="infos(this)">
+                <img src="steak.jpg" alt="steak">
+                <p>industrial meat</p>
+            </div>
+
+            <div id="13" onclick="infos(this)">
+                <img src="conserve.jpg" alt="boîte de conserve">
+                <p>cans</p>
+            </div>
+
+            <div id="14" onclick="infos(this)">
+                <img src="pringles.png" alt="pringles">
+                <p>pringles</p>
+            </div>
+
+            <div id="15" onclick="infos(this)">
+                <img src="bigmac.png" alt="Big Mac">
+                <p>fast food</p>
+            </div>
+
+        </div>
+
+        <div id="consomation">
+            <!-- Liste d images -->
+
+            <div id="nefast">
+
+                <h3>Infos</h3>
+
+                <div>
+                    Damage to the body:
+                </div>
+
+                <div id="a" class="hidden">
+                    <p>When we consume cigarettes we breathe many toxic products which has the effect of accelerating
+                        the
+                        aging of the skin, accelerates the onset of menopause, reduced fertility, digestive system
+                        disturbances, sleep disorders , many dental problems and can lead to 9 out of 10 cancers.</p>
+                </div>
+                <div id="b" class="hidden">
+                    <p>Cigarette smoking increases the risk of cancer, cardiovascular disease, cirrhosis, cognitive
+                        impairment and weakens our mental health.</p>
+                </div>
+                <div id="c" class="hidden">
+                    <p>Consumption of soft drinks can cause chronic kidney problems, cancer of the esophagus, obesity,
+                        hyperactivity, tooth decay and diabetes.</p>
+                </div>
+                <div id="d" class="hidden">
+                    <p>When preparing mayonnaise there is a risk of contamination during preparation or of microbial
+                        multiplication during the preservation phases.</p>
+                </div>
+                <div id="e" class="hidden">
+                    <p>Consumption of sugar can cause pancreatic disorders, attention deficit, hyperactivity, insulin
+                        production and the long term development of type 2 diabetes,</p>
+                </div>
+                <div id="f" class="hidden">
+                    <p>The consumption of sugar can cause a cardiovascular risk,</p>
+                </div>
+                <div id="g" class="hidden">
+                    <p>The consumption of butter causes cholesterol deposits in the arteries which can damage the heart
+                        and
+                        make you overweight.</p>
+                </div>
+                <div id="h" class="hidden">
+                    <p>Nutella contains a lot of sugar (21 grams for 2 spoons) so we find the same harmful effects as
+                        with
+                        sugar, i.e. pancreatic disorders, attention deficit, hyperactivity, the production of insulin
+                        and
+                        long-term onset of type 2 diabetes,
+                        You should know that nutella is made up of 20% oil so has the same effects as oil, i.e.
+                        cardiovascular risk,</p>
+                </div>
+                <div id="i" class="hidden">
+                    <p>Cow's milk is made for calves not for humans at the base, cow's milk contains harmful ingredients
+                        for
+                        the human body without forgetting that we have exceeded (I suppose) the age to digest milk,
+                        because
+                        yes has from a certain age one can no longer digest milk</p>
+                </div>
+                <div id="j" class="hidden">
+                    <p>Consuming cereal can lead to dementia, attention deficit disorder, hyperactivity disorder,
+                        anxiety,
+                        chronic headaches, and more.</p>
+                </div>
+                <div id="k" class="hidden">
+                    <p>Chewing gum can be responsible for chronic migraine and can also disrupt digestion because we
+                        chew,
+                        signals are sent to the brain but nothing goes in the belly.</p>
+                </div>
+                <div id="l" class="hidden">
+                    <p>The consumption of industrial meat would increase the risk of cardiovascular disease, cancer,
+                        diabetes or even inflammation of the intestine.</p>
+                </div>
+                <div id="m" class="hidden">
+                    <p>We find in cans the presence of endocrine disruptors, metal, preservatives and toxic products.
+                        You
+                        can also find worms there.</p>
+                </div>
+                <div id="n" class="hidden">
+                    <p>Pringles have carcinogenic substances.</p>
+                </div>
+                <div id="o" class="hidden">
+                    <p>Fast food causes obesity, type 2 diabetes, cardiovascular problems, hypertension, kidney failure,
+                        sedentary lifestyle, osteoporosis.</p>
+                </div>
+
+            </div>
+
+            <div id="solution">
+                <h3>Alternatives</h3>
+
+                <div>
+                    The solutions:
+                </div>
+
+                <div id="alpha" class="hidden">
+                    <p>As a solution you can gradually reduce the number of cigarettes, play sports, keep your fingers
+                        busy,
+                        use nicotine patches.
+                        If you want to find more solutions you can call on the coaches present on the platform, they
+                        will
+                        help and advise you,
+                        You can also chat with the nutritionists on the platform to have a healthier diet.</p>
+                </div>
+                <div id="beta" class="hidden">
+                    <p>As a solution you should stop drinking it and replace it with homemade fruit juice.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform they will help and advise you to achieve this goal.</p>
+                </div>
+                <div id="gamma" class="hidden">
+                    <p>As a solution you can replace it with homemade fruit juice.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="delta" class="hidden">
+                    <p>If you want to find solutions, you can call on the services offered by the coaches and
+                        nutritionists
+                        present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="epsilon" class="hidden">
+                    <p>If you want to find solutions, you can call on the services offered by the coaches and
+                        nutritionists
+                        present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="dzeta" class="hidden">
+                    <p>As a solution you can switch to the consumption of organic oil and reduce your consumption as
+                        much as
+                        possible.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="eta" class="hidden">
+                    <p>As a solution you can pay attention to the brand of butter you use and consume homemade jam or
+                        homemade butter for example,
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="theta" class="hidden">
+                    <p>As a solution you can pay attention to the brand of butter you use and consume homemade jam or
+                        homemade butter for example,
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="iota" class="hidden">
+                    <p>As a solution you can consume homemade fruit juice.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="kappa" class="hidden">
+                    <p>If you want to find solutions, you can call on the services offered by the coaches and
+                        nutritionists
+                        present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="lambda" class="hidden">
+                    <p>If you want to find solutions, you can call on the services offered by the coaches and
+                        nutritionists
+                        present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="mu" class="hidden">
+                    <p>As a solution you can have your own breeding, stop / reduce your consumption of industrial meat.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="nu" class="hidden">
+                    <p>As a solution you can stop / reduce the consumption of canned food and switch to natural
+                        products.
+                        If you want to find more solutions you can call on the services offered by the coaches and
+                        nutritionists present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="xi" class="hidden">
+                    <p>If you want to find solutions, you can call on the services offered by the coaches and
+                        nutritionists
+                        present on our platform, they will help and advise you.</p>
+                </div>
+                <div id="omicron" class="hidden">
+                    <p>As a solution, you have to stop / reduce your consumption and switch to a healthier consumption,
+                        go
+                        see our nutritionists who will advise you</p>
+                </div>
+            </div>
+            <link rel="shortcut icon" href="icon">
+        </div>
+
+
+
+
+
+        <!-- Nous allons donner ici la liste pour les coaches et les nutritionnistes -->
+        <div id="conseilles" class="hidden">
+            <!-- la liste des coaches -->
+            <div id="yop1">
+
+                <h3> Coach</h3>
+                <div id="coach">
+                    <div id="20" onclick=infos(this)>
+                        <img src="gagoe.jpg" alt="truc">
+                        <p>R.GAGOE</p>
+                    </div>
+                    <div id="21" onclick=infos(this)>
+                        <img src="coach2.jpg" alt="truc">
+                        <p>T.Sankara</p>
+                    </div>
+                    <div id="22" onclick=infos(this)>
+                        <img src="trump.jpeg" alt="truc">
+                        <p>D.Trump</p>
+                    </div>
+                    <div id="23" onclick=infos(this)>
+                        <img src="coach4.jpg" alt="truc">
+                        <p>Coach 4</p>
+                    </div>
+                    <div id="24" onclick=infos(this)>
+                        <img src="coach5.jpg" alt="truc">
+                        <p>Coach 5</p>
+                    </div>
+                    <div id="25" onclick=infos(this)>
+                        <img src="coach6.jpg" alt="truc">
+                        <p>Coach 6</p>
+                    </div>
+                    <div id="26" onclick=infos(this)>
+                        <img src="coach7.jpg" alt="truc">
+                        <p>Coach 7</p>
+                    </div>
+                    <div id="27" onclick=infos(this)>
+                        <img src="coach8.jpg" alt="truc">
+                        <p>Coach 8</p>
+                    </div>
+                    <div id="28" onclick=infos(this)>
+                        <img src="coach9.jpg" alt="truc">
+                        <p>Coach 9</p>
+                    </div>
+                    <div id="29" onclick=infos(this)>
+                        <img src="coach10.jpg" alt="truc">
+                        <p>Coach 10</p>
+                    </div>
+                </div>
+
+            </div>
+            <div id="yop2">
+
+                <!-- la liste des nutritionnistes -->
+
+                <h3>Nutritionnistes</h3>
+                <div id="nutritionnistes">
+                    <div id="30" onclick=infos(this)>
+                        <img src="greta.jpeg" alt="truc">
+                        <p>G.Thumberg</p>
+                    </div>
+                    <div id="31" onclick=infos(this)>
+                        <img src="nutri2.jpg" alt="truc">
+                        <p>A.Bergelac</p>
+                    </div>
+                    <div id="32" onclick=infos(this)>
+                        <img src="nutri3.jpg" alt="truc">
+                        <p>I.Trump</p>
+                    </div>
+                    <div id="33" onclick=infos(this)>
+                        <img src="nutri4.jpg" alt="truc">
+                        <p>Nutri 4</p>
+                    </div>
+                    <div id="34" onclick=infos(this)>
+                        <img src="nutri5.jpg" alt="truc">
+                        <p>Nutri 5</p>
+                    </div>
+                    <div id="35" onclick=infos(this)>
+                        <img src="nutri6.jpg" alt="truc">
+                        <p>Nutri 6</p>
+                    </div>
+                    <div id="36" onclick=infos(this)>
+                        <img src="nutri7.jpg" alt="truc">
+                        <p>Nutri 7</p>
+                    </div>
+                    <div id="37" onclick=infos(this)>
+                        <img src="nutri8.jpg" alt="truc">
+                        <p>Nutri 8</p>
+                    </div>
+                    <div id="38" onclick=infos(this)>
+                        <img src="nutri9.jpg" alt="truc">
+                        <p>Nutri 9</p>
+                    </div>
+                    <div id="39" onclick=infos(this)>
+                        <img src="nutri10.jpg" alt="truc">
+                        <p>Nutri 10</p>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+    </div>
+
+
+    <footer>
+
+        <div id="f1">
+            <h4>The company</h4>
+            <ul>
+                <li><a href="https://www.google.fr" target="_blanc">Who are we?</a></li> <br>
+                <li><a href="https://www.google.fr" target="_blanc">Confidentiality and cookies charter</a></li> <br>
+                <li><a href="https://www.google.fr" target="_blanc">general condition of use</a></li> <br>
+                <li><a href="https://www.google.fr" target="_blanc">legal information</a></li>
+            </ul>
+        </div>
+
+        <div id="f2">
+
+            <div>
+                <h4>contact us</h4>
+                <p><a href="mailto:houette@gmail.com">chouette@gmail.com</a></p>
+                <p>+999 9999 9999 9999</p>
+            </div>
+            <br>
+
+            <h4>follow us</h4>
+            <ul>
+                <li><a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+                <li><a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram-square"></i></a>
+            </ul>
+
+        </div>
+
+        <div id="f3">
+            <h4>Paiement Secure</h4>
+            <ul>
+                <li class="paiement"><img src="usdt.png" alt="Paiement by usdt"></li>
+                <li class="paiement"><img src="visa.png" alt="Paiement by visa"></li>
+                <li class="paiement"><img src="Mastercard.png" alt="Paiement by mastercard"></li>
+                <li class="paiement"><img src="paypal.png" alt="Paiement by paypal"></li>
+            </ul>
+
+        </div>
+
+
+
+    </footer>
+
+
+
+
+
+
+
+
+
+    <script>
+
+        //pour l'affichage des produits ou des partenaires
+        function display(x) {
+            var a = x.id
+
+            if (a == "infos") {
+                var b = document.getElementById("consomation").classList.remove("hidden");
+                var c = document.getElementById("conseilles").classList.add("hidden")
+            }
+
+            else if (a == "partenaires") {
+                var b = document.getElementById("consomation").classList.add("hidden");
+                var c = document.getElementById("conseilles").classList.remove("hidden")
+            }
+        }
+
+
+        //calcule l'IMC
+        function getValue() {
+            var x = document.getElementById("poids").value;
+            var y = document.getElementById("taille").value;
+
+            console.log("poids: " + x + "kg");
+            console.log("taille: " + y + "cm");
+
+            y = y * y
+            var z = (x / y) * 10000
+            //z = Math.trunc(z)
+
+            alert("votre IMC: " + z)
+
+        }
+
+        //infos bouffe
+        function infos(r) {
+            var k = r.id
+
+            if (k == "1") {
+                document.getElementById("a").classList.remove("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.remove("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "2") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.remove("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.remove("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "3") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.remove("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.remove("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "4") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.remove("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.remove("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "5") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.remove("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.remove("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "6") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.remove("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.remove("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "7") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.remove("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.remove("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "8") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.remove("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.remove("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "9") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.remove("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.remove("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "10") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.remove("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.remove("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "11") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.remove("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.remove("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "12") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.remove("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.remove("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "13") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.remove("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.remove("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "14") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.remove("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.remove("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "15") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.remove("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.remove("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "16") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.remove("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.remove("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "17") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.remove("hidden");
+                document.getElementById("r").classList.add("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.remove("hidden");
+                document.getElementById("sigma").classList.add("hidden");
+            }
+
+            if (k == "18") {
+                document.getElementById("a").classList.add("hidden");
+                document.getElementById("b").classList.add("hidden");
+                document.getElementById("c").classList.add("hidden");
+                document.getElementById("d").classList.add("hidden");
+                document.getElementById("e").classList.add("hidden");
+                document.getElementById("f").classList.add("hidden");
+                document.getElementById("g").classList.add("hidden");
+                document.getElementById("h").classList.add("hidden");
+                document.getElementById("i").classList.add("hidden");
+                document.getElementById("j").classList.add("hidden");
+                document.getElementById("k").classList.add("hidden");
+                document.getElementById("l").classList.add("hidden");
+                document.getElementById("m").classList.add("hidden");
+                document.getElementById("n").classList.add("hidden");
+                document.getElementById("o").classList.add("hidden");
+                document.getElementById("p").classList.add("hidden");
+                document.getElementById("q").classList.add("hidden");
+                document.getElementById("r").classList.remove("hidden");
+
+                document.getElementById("alpha").classList.add("hidden");
+                document.getElementById("beta").classList.add("hidden");
+                document.getElementById("gamma").classList.add("hidden");
+                document.getElementById("delta").classList.add("hidden");
+                document.getElementById("epsilon").classList.add("hidden");
+                document.getElementById("dzeta").classList.add("hidden");
+                document.getElementById("eta").classList.add("hidden");
+                document.getElementById("theta").classList.add("hidden");
+                document.getElementById("iota").classList.add("hidden");
+                document.getElementById("kappa").classList.add("hidden");
+                document.getElementById("lambda").classList.add("hidden");
+                document.getElementById("mu").classList.add("hidden");
+                document.getElementById("nu").classList.add("hidden");
+                document.getElementById("xi").classList.add("hidden");
+                document.getElementById("omicron").classList.add("hidden");
+                document.getElementById("pi").classList.add("hidden");
+                document.getElementById("rho").classList.add("hidden");
+                document.getElementById("sigma").classList.remove("hidden");
+            }
+        }
+    </script>
+
+
+    <script>
+        // Pour les partenaires, lorsqu on clique dessus on a leurs profiles
+        function infos(x) {
+            var a = x.id
+            //console.log(a)
+
+            if (a == "20") {
+                var b = window.open("gagoe.html", "_self", false)
+            }
+
+            if (a == "21") {
+                var b = window.open("t.sankara.html", "_self", false)
+            }
+
+            if (a == "22") {
+                var b = window.open("d.trump.html", "_self", false)
+            }
+
+            if (a == "23") {
+                var b = window.open("coach4.html", "_self", false)
+            }
+
+            if (a == "24") {
+                var b = window.open("coach5.html", "_self", false)
+            }
+
+            if (a == "25") {
+                var b = window.open("coach6.html", "_self", false)
+            }
+
+            if (a == "26") {
+                var b = window.open("coach7.html", "_self", false)
+            }
+
+            if (a == "27") {
+                var b = window.open("coach8.html", "_self", false)
+            }
+
+            if (a == "28") {
+                var b = window.open("coach9.html", "_self", false)
+            }
+
+            if (a == "29") {
+                var b = window.open("coach10.html", "_self", false)
+            }
+
+            if (a == "30") {
+                var b = window.open("g.thumberg.html", "_self", false)
+            }
+
+            if (a == "31") {
+                var b = window.open("a.bergelac.html", "_self", false)
+            }
+
+            if (a == "32") {
+                var b = window.open("itrump.html", "_self", false)
+            }
+
+            if (a == "33") {
+                var b = window.open("nutri4.html", "_self", false)
+            }
+
+            if (a == "34") {
+                var b = window.open("nutri5.html", "_self", false)
+            }
+
+            if (a == "35") {
+                var b = window.open("nutri6.html", "_self", false)
+            }
+
+            if (a == "36") {
+                var b = window.open("nutri7.html", "_self", false)
+            }
+
+            if (a == "37") {
+                var b = window.open("nutri8.html", "_self", false)
+            }
+
+            if (a == "38") {
+                var b = window.open("nutri9.html", "_self", false)
+            }
+
+            if (a == "39") {
+                var b = window.open("nutri10.html", "_self", false)
+            }
+
+
+        }
+    </script>
+
+</body>
+
+</html>

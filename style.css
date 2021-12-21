@@ -1,0 +1,861 @@
+:root{
+    --color1: #006266;
+    --color2: #009432;
+    --color3: #A3CB38;
+    --color4: #C4E538;
+}
+
+
+@font-face{
+    font-family: "font-1";
+    src: url(./Karla-Regular.ttf);
+}
+
+@font-face {
+    font-family: "font-2";
+    src: url(Karla-Italic.ttf);
+}
+
+@font-face{
+    font-family: "font-3";
+    src: url(./Karla-SemiBold.ttf);
+}
+
+/* Tout les images ont cette taille*/
+#images > div img,
+#coach > div img,
+#nutritionnistes > div img
+{ 
+    width: 150px;
+    height: 200px;
+    margin: 10px;
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+
+    /* Ainsi maintenaznt lorsqu on va definir la largeur d un element, *
+    * la largeur prendra en compte les padding et les bordures, *
+    * commze ça on a plus a se soucier de savoir si un element a oui ou *
+    * non un padding */
+    box-sizing: border-box;
+
+    font-family: 'font-1', sans-serif;
+
+    /* cette ligne de code permet, par exemple pour un effet de deffillement,
+    * d avoir un effet de deffillement assez doux qui ne se fait paas direxctement *
+    * vers la section */
+    scroll-behavior: smooth;
+    text-decoration: none;
+    list-style: none;
+}
+
+
+body{
+    width: 100%;
+}
+
+
+/********************************** Header **********************************/
+header{
+
+    background: url(./bg_head.jpg) no-repeat center fixed; 
+    background-size: cover;
+    width: 100%;
+    height: 100vh;
+
+    /* Permet de modifier les dimensions d un element afin de remplir l espace *
+    * disponible de sont contenaur */ 
+    display: flex;
+    /* ça centre les elements verticalement */ 
+    align-items: center;
+    /* ça centre les elements horizontalement*/ 
+    justify-content: center;
+    z-index: 1;
+
+}
+
+nav{
+    position: fixed;
+    /* Pour une largeur de 100% */
+    width: 100%;
+    background:rgba(0, 0, 0, 0.555);
+    display: inline;
+    top: 0px;
+}
+
+nav ul{
+    padding: 0;
+    /* Pour Centrer notre ul*/
+    text-align: right;
+    margin: 0;
+}
+
+nav ul li{
+    /* pour que le liste de la nav barre se met a la ligne,*
+    * a la suite l une de l autre */
+    display: inline-block;
+    /* Pour qu elle soit un peut ecarter les unes des autres */
+    padding: 20px;
+    transition: 0.2s;
+}
+nav li{
+    position: fixed;
+    /* Pour coller les listes entre elles */
+	position: relative;
+	margin-left: -40px;
+}
+
+nav ul li :hover{
+    color: white;
+    background: rgb(55, 197, 7);
+    transition: 0.2s;
+}
+
+nav ul li a{
+    
+    text-decoration: none;
+    color: var(--color3);
+    font-size: 18px;
+    font-weight: bold;
+    border: solid 1px rgb(11, 97, 3);
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.logo{
+    text-decoration: none;
+    /* Pour la fixer en haut */
+    position: absolute;
+    /* pour qu elle soit en haut a gauche */
+    float: left;
+    margin: 16px 36px;
+    color: white;
+    /* Pour qu elle soit en gras */
+    font-weight: bold;
+    font-size: 30px;
+    margin: 0px;
+}
+
+span{
+    color:var(--color1);
+    font-size: 40px;
+}
+
+#cart{
+    text-align: center;
+    position: fixed;
+    border: 1px solid black;
+    width: calc(100% - 50px);
+    height: 50%;
+    padding-bottom: auto;
+    padding-top: 5%;
+    z-index: 2;
+    backdrop-filter: blur(5px);
+}
+
+#cart > p{
+    margin-top: -20px;
+    color: var(--color2);
+    font-size: 6rem;
+    -webkit-text-stroke: 1px black; 
+}
+
+#cart > h1{
+    margin-top: -30px;
+    color: var(--color1);
+    font-size: 5rem;
+    letter-spacing: 10px;
+    /* -webkit-text-stroke: 1px black; */
+    border-radius: 5px;
+}
+#cart > h2{
+    color: var(--color1);
+    font-size: 2rem;
+}
+
+/* Ainsi lorsqu on selectionne avec la souri le paragraphe, l ariere plan du texte devient rose et la couleur *
+* du texte devient noir */
+ h2::selection{
+    background: var(--color1);
+    color: var(--color3);
+}
+
+/* On va donner une largeur a notre boite */
+#caroussel{
+    display: inline-block;
+    width: 310px;
+    /* Quand on a donner une largeur a notre boite les phrases * 
+    * peuvent sortire de la boite, mais maintenant elles ne peuvent *
+    * plus sortir de la boite */
+    overflow: auto;
+    /* Pour cacher le sccroll deroulant */
+    overflow: hidden;
+
+}
+.phrases > h2{
+    margin: 1px 5px;
+}
+
+.phrases{
+    /* Permet de faire en sort que nos phrases restes les unes a *
+    * coté de l autres et qu il n y  pas d espaces entre */
+
+    display: flex;
+    /* On va maintenant aller chercher nos proprieté d animation */
+    /* Pour dire que notre animation va durer 10 secondes */
+    animation-duration: 20s;
+    /* Pour nomer l animation */
+    animation-name: mesphrases;
+    /* Pour faire en sort que sa tourne en boucle */
+    animation-iteration-count: infinite;
+    width: 10000px;
+    color: var(--color1);
+    font-size: 2rem;
+}
+
+
+/* Pour faire tourner notre animation on va avoir besoin de regles, donc: */
+@keyframes mesphrases {
+    /* On va definir notre temps en 0ù et en 100% */
+    0%{
+        transform: translatex(0px);
+    }
+    20%{
+        transform: translatex(-298px);
+    }
+    40%{
+        transform: translatex(-592px);
+    }
+    60%{
+        transform: translatex(-930px);
+    }
+    80%{
+        transform: translatex(-1269px);
+    }
+
+}
+
+/********************************** Body **********************************/
+/*************** Body ***************/
+#index{
+    /* J ai du mettre une position relative et un background *
+    * blanc pour que le "z-index" fonctionne comme je vaux */
+    position: relative;
+    background: white;
+    z-index: 3;
+}
+
+/*************** IMS ***************/
+#h3{
+    color: var(--color2);
+    font-size: 40px;
+    text-align: center;
+    padding-top: 25px;
+}
+
+#ims > p{
+    font-size: 24px;
+    text-align: center;
+    margin: 5px 35px;
+    padding: 5px 10px;
+}
+
+#ims2{
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    padding-top: 5px;
+    padding-bottom: 15px;
+}
+
+/*
+#ims > label{
+    width: 100%;
+}
+*/
+
+#poids{
+    display: block;
+    margin: 3px;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px;
+    font-size: 30px;
+    height: 25px;
+    width: 90%;
+    text-align: center;
+}
+#taille{
+    display: block;
+    margin: 3px;
+    border: 0px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px 0px;
+    font-size: 30px;
+    height: 25px;
+    width: 90%;
+    text-align: center;
+}
+
+input[type="number"]:focus {
+
+    border-radius: 5px;
+    color: var(--color2);
+}
+
+input[type="number"]::placeholder{
+    color: var(--color2);  
+}
+
+#ims > button{
+    display: block;
+    width: 50%;
+    justify-content: center;
+    margin: 5px;
+    height: 25px;
+    padding-bottom: 32px;
+    background: white;
+    font-size: 25px;
+    border: 1px rgb(3, 61, 3) solid;
+    color: rgb(3, 61, 3);
+    transition: 0.3s;
+    cursor: pointer;
+    margin-bottom: 25px;
+    margin-left: 25%;
+}
+
+
+
+#ims > button:hover{
+    transform: scale(1.1);
+    background: rgb(49, 248, 49);
+    font-size: 25px;
+    border: 1px rgb(3, 61, 3) solid;
+    color: white;
+}
+
+input:focus{
+    outline: none;
+}
+
+#boutons{
+    display: flex;
+
+    /* Pour les aaligné */
+    flex-direction: row;
+
+    /* Ainsi lorsqu'un élement sort du contenaire, il faut la repositionner en bas *
+    * parfait pour le responssive */
+    /* flex-wrap: wrap; */
+
+    /* Pour répartir les blocs de manière égale */
+    justify-content: space-evenly;
+}
+
+#infos{
+    width: 48%;
+    font-size: 25px;
+    border-radius: 8px;
+    background: var(--color1);
+    margin: 0px 15px;
+    color: white;
+    padding: 5px 0px;
+    transition: 00.3s;
+}
+
+#partenaires{
+    width: 48%;
+    font-size: 25px;
+    border-radius: 8px;
+    background: var(--color1);
+    margin: 0px 15px;
+    color: white;
+    padding: 5px 0px;
+    transition: 0.3s;
+}
+
+#infos:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background: var(--color3);
+    cursor: pointer;
+}
+
+#partenaires:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    background: var(--color3);
+    cursor: pointer;
+}
+
+
+
+
+
+#images div{
+    transition: 0.3s;
+    margin: 15px 5px;
+    box-shadow: 0px 0px 5px 0px var(--color3);
+    border-radius: 10px;
+    background: white;
+}
+
+
+#section{
+    padding-top: 55px;
+    background: rgb(250, 247, 224);
+}
+#images{
+    display: flex;
+
+    /* Pour les aaligné */
+    flex-direction: row;
+
+    /* Ainsi lorsqu'un élement sort du contenaire, il faut la repositionner en bas *
+    * parfait pour le responssive */
+    flex-wrap: wrap;
+
+    /* Pour répartir les blocs de manière égale */
+    justify-content: space-evenly;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+img{
+    width: 200px;
+    height: 250px;
+}
+
+#images > p{
+    text-align: center;
+    width: 200px;
+    position: relative;
+    display: block;
+
+}
+
+
+
+#images > div{
+    text-align: center;
+}
+
+#images div:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px var(--color1) ;
+}
+
+#images{
+    display: flex;
+
+    /* Pour les aaligné */
+    flex-direction: row;
+
+    /* Ainsi lorsqu'un élement sort du contenaire, il faut la repositionner en bas *
+    * parfait pour le responssive */
+    flex-wrap: wrap;
+
+    /* Pour répartir les blocs de manière égale */
+    justify-content: space-evenly;
+}
+
+/*************** Conseilles ***************/
+#consomation{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#nefast, #solution{
+    margin: 10px;
+    padding: 15px;
+    width: 98%;
+    background: var(--color1);
+    color: white;
+}
+
+#nefast > div , #solution > div{
+    font-size: 24px;
+}
+
+#nefast > h3, #solution > h3{
+    color: var(--color4);
+    font-size: 2em;
+}
+
+#solution{
+    border: 1px solid black;
+    margin: 10px;
+    padding: 15px;
+    width: 95%;
+    background: var(--color1);
+    color: white;
+
+}
+
+
+
+/*************** Coach ***************/
+#conseilles{
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+#coach div{
+    transition: 0.3s;
+    margin: 15px 5px;
+    box-shadow: 0px 0px 5px 0px var(--color3);
+    border-radius: 10px;
+    background: white;
+    
+}
+
+#coach{
+    border: 1px solid var(--color1);
+    display: flex;
+
+    /* Pour les aaligné */
+    flex-direction: row;
+
+    /* Ainsi lorsqu'un élement sort du contenaire, il faut la repositionner en bas *
+    * parfait pour le responssive */
+    flex-wrap: wrap;
+
+    /* Pour répartir les blocs de manière égale */
+    justify-content: space-evenly;
+
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+#yop1 > h3{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 32px;
+    color: var(--color1);
+}
+
+
+#coach > div{
+    text-align: center;
+}
+
+#coach > div:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px var(--color1);
+}
+
+/*************** Nutritionistes ***************/
+
+#yop2 > h3{
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 5px;
+    font-size: 32px;
+    color: var(--color1);
+}
+
+#nutritionnistes div{
+    transition: 0.3s;
+    margin: 15px 5px;
+    box-shadow: 0px 0px 5px 0px var(--color3);
+    border-radius: 10px;
+    background: white;
+}
+
+#nutritionnistes{
+    border: 1px solid var(--color1);
+    display: flex;
+
+    /* Pour les aaligné */
+    flex-direction: row;
+
+    /* Ainsi lorsqu'un élement sort du contenaire, il faut la repositionner en bas *
+    * parfait pour le responssive */
+    flex-wrap: wrap;
+
+    /* Pour répartir les blocs de manière égale */
+    justify-content: space-evenly;
+
+    margin-bottom: 10px;
+    margin-right: 10px;
+    margin-left: 5px;
+}
+
+
+#nutritionnistes > div{
+    text-align: center;
+}
+
+#nutritionnistes div:hover{
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    cursor: pointer;
+    box-shadow: 0px 0px 5px 0px var(--color1);
+}
+
+
+/****** Mitch *****/
+/* Pour les boutons "infos" et "partenaires"*/
+#boutons{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    
+}
+
+#boutons > button{
+    width: 50%;
+}
+
+.hidden{
+    display: none;
+}
+
+
+
+
+
+
+
+
+
+/********************************** Footer **********************************/
+
+footer{
+        /* Pour avoir des pointillés sur le bord du haut du footer */
+        font-size: 16px;
+        border-top: 1px dashed black;
+        padding: 0px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        width: 100%;
+        height: auto;
+        background: var(--color1); 
+        display: grid;
+        grid-template-columns: 33.33% 33.34% 33.33%;
+        grid-template-rows: auto auto auto;
+        position: relative;
+        z-index: 3;
+}
+
+footer > div {
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding: 15px;
+    position: relative;
+    top: -5px;
+}
+
+#f1 > h4, #f2 > div > h4, #f2 > h4, #f3 > h4{
+    font-size: 35px;
+    color: white;
+}
+
+#f3 > h4{
+    position: relative;
+    margin-bottom: 15px;
+}
+
+#f1 > ul > li > a{
+    position: relative;
+    color: black;
+        line-height: 30px;
+}
+
+i{
+    color: rgb(5, 43, 1);
+}
+
+footer > div > ul > li > img{
+    width: 40px;
+    height: 40px;
+}
+
+footer > div > ul > li{
+    position: relative;
+    display: inline;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
+}
+
+#f3 > h4{
+    position: relative;
+    top: -22px;
+}
+
+#f2 > div > p > a{
+    color: black;
+}
+
+.reseaux{
+    width: 68px;
+    height: 35px;
+}
+
+
+/*********************************** Responsive body **************************/
+
+@media screen and (max-width: 1490px){
+    #images > div img,
+    #coach > div img,
+    #nutritionnistes > div img
+    { 
+        width: 125px;
+        height: 150px;
+        margin: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1290px){
+    #images > div img,
+    #coach > div img,
+    #nutritionnistes > div img
+    { 
+        width: 100px;
+        height: 125px;
+        margin: 10px;
+    }
+
+}
+
+@media screen and (max-width: 1090px){
+    #images > div img,
+    #coach > div img,
+    #nutritionnistes > div img
+    { 
+        width: 75px;
+        height: 100px;
+        margin: 10px;
+    }
+
+}
+
+
+@media screen and (max-width: 760px){
+    #images > div img,
+    #coach > div img,
+    #nutritionnistes > div img
+    { 
+        width: 50px;
+        height: 65px;
+        margin: 10px;
+    }
+
+    #yop1 > h3{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        font-size: 24px;
+        color: var(--color1);
+    }
+    
+    #yop2 > h3{
+        text-align: center;
+        margin-top: 30px;
+        margin-bottom: 5px;
+        font-size: 24px;
+        color: var(--color1);
+    }
+
+
+}
+
+@media screen and (max-width: 530px){
+    #images > div img,
+    #coach > div img,
+    #nutritionnistes > div img
+    { 
+        width: 40px;
+        height: 55px;
+        margin: 10px;
+    }
+}
+
+/***************** responsive text ********************/
+@media screen and (max-width: 1400px){
+    #ims > p{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 1100px){
+    #ims > p{
+        font-size: 16px;
+    }
+
+    #nefast > div, #solution > div{
+        font-size: 20px;
+    }
+
+}
+
+@media screen and (max-width: 850px){
+    #nefast > h3, #solution > h3{
+        color: var(--color4);
+        font-size: 1.5em;
+    }
+
+    #nefast > div, #solution > div{
+        font-size: 16px;
+    }
+}
+
+
+@media screen and (max-width: 500px){
+    #ims > p{
+        font-size: 12px;
+    }
+}
+
+/********************* footer text responsive *******************/
+
+@media screen and (max-width: 615px){
+
+    #f1 > h4, #f2 > div > h4, #f2 > h4, #f3 > h4{
+        font-size: 25px;
+        color: white;
+    }
+    
+    footer > div > ul > li, #f2 > div > p{
+        font-size: 16px;
+    }
+
+
+    footer > div > ul > li > img{
+        width: 35px;
+        height: 35px;
+    }
+    
+
+
+}
+
+
+
+
+
+
+
+
+
+
