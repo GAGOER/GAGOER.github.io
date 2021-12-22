@@ -146,18 +146,24 @@ span{
 #cart{
     text-align: center;
     position: fixed;
+    background: rgba(0, 0, 0, 0.555);
     border: 1px solid black;
     width: calc(100% - 50px);
-    height: 50%;
+    height: 60%;
     padding-bottom: auto;
     padding-top: 5%;
     z-index: 2;
     backdrop-filter: blur(5px);
 }
 
+h1 > span{
+    color: white;
+    font-size: 60px;
+}
+
 #cart > p{
     margin-top: -20px;
-    color: var(--color2);
+    color: white;
     font-size: 6rem;
     -webkit-text-stroke: 1px black; 
 }
@@ -171,7 +177,7 @@ span{
     border-radius: 5px;
 }
 #cart > h2{
-    color: var(--color1);
+    color: white;
     font-size: 2rem;
 }
 
@@ -211,7 +217,7 @@ span{
     /* Pour faire en sort que sa tourne en boucle */
     animation-iteration-count: infinite;
     width: 10000px;
-    color: var(--color1);
+    color: white;
     font-size: 2rem;
 }
 
@@ -301,14 +307,14 @@ span{
     text-align: center;
 }
 
-input[type="number"]:focus {
+input[type="value"]:focus {
 
     border-radius: 5px;
-    color: var(--color2);
+    color: #00943144;
 }
 
-input[type="number"]::placeholder{
-    color: var(--color2);  
+input[type="value"]::placeholder{
+    color: #00943154;  
 }
 
 #ims > button{
@@ -738,28 +744,10 @@ footer > div > ul > li{
 
 }
 
-@media screen and (max-width: 1090px){
-    #images > div img,
-    #coach > div img,
-    #nutritionnistes > div img
-    { 
-        width: 75px;
-        height: 100px;
-        margin: 10px;
-    }
 
-}
 
 
 @media screen and (max-width: 760px){
-    #images > div img,
-    #coach > div img,
-    #nutritionnistes > div img
-    { 
-        width: 50px;
-        height: 65px;
-        margin: 10px;
-    }
 
     #yop1 > h3{
         text-align: center;
@@ -780,16 +768,7 @@ footer > div > ul > li{
 
 }
 
-@media screen and (max-width: 530px){
-    #images > div img,
-    #coach > div img,
-    #nutritionnistes > div img
-    { 
-        width: 40px;
-        height: 55px;
-        margin: 10px;
-    }
-}
+
 
 /***************** responsive text ********************/
 @media screen and (max-width: 1400px){
